@@ -33,6 +33,7 @@ class Vote
     total_score = score1.length + score2.length + score3.length
     sql = "UPDATE votes SET score = #{total_score} WHERE pub_id = #{@pub_id}"
     SqlRunner.run(sql)
+    return total_score
   end
 
   def self.all()

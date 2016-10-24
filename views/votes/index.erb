@@ -1,0 +1,9 @@
+<div>
+
+<% @votes.each do |vote| %>
+<p>Pub with ID: <%= vote.pub_id %></a> has <%= vote.score %> votes! <br>
+<hr>
+<% end %>
+
+  <a href="/votes/new">Add new vote</a><br>
+</div>

@@ -1,5 +1,6 @@
 require 'pry-byebug'
 require_relative('../models/vote')
+require_relative('../models/pub')
 
 #index
 get '/votes' do
@@ -9,6 +10,8 @@ end
 
 #new
 get '/votes/new' do
+  @votes = Vote.all
+  @pubs = Pub.all
   erb(:'votes/new')
 end
 

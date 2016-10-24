@@ -1,0 +1,40 @@
+<h2>Add Voting Entry</h2>
+
+<form action="/votes" method="post">
+
+  <label for="name">Voting Pub Name:</label>
+  <select id='pub_id' name='name' type='text'>
+    <% @pubs.each do |pub| %>
+      <option value="<%= pub.name()%>"> <%= pub.name() %> </option>
+    <% end %>
+  </select>
+
+  <label for="vote1_id">First Vote:</label>
+  <select id='pub_id' name='vote1_id' type='text'>
+    <% @votes.each do |vote| %>
+      <option value="<%= vote.pub_id()%>"> <%= vote.pub_id() %> </option>
+    <% end %>
+  </select>
+  
+  <label for="vote2_id">Second Vote:</label>
+  <select id='pub_id' name='vote2_id' type='text'>
+    <% @votes.each do |vote| %>
+      <option value="<%= vote.pub_id()%>"> <%= vote.pub_id() %> </option>
+    <% end %>
+  </select>
+  
+  <label for="vote3_id">Thirds Vote:</label>
+  <select id='pub_id' name='vote3_id' type='text'>
+    <% @votes.each do |vote| %>
+      <option value="<%= vote.pub_id()%>"> <%= vote.pub_id() %> </option>
+    <% end %>
+  </select>
+
+  <input type='submit' value="Submit Votes">
+</form>
+
+
+<br>
+<a href="/pubs/new">Add new pub</a><br>
+<br>
+<a href="/">Back</a>
