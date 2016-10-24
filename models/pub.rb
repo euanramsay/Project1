@@ -1,6 +1,7 @@
 require( 'pg' )
 require( 'pry-byebug' )
 require_relative('../db/sql_runner')
+require_relative( '../models/vote' )
 
 class Pub
 
@@ -19,7 +20,7 @@ class Pub
     @id = pub_data['id'].to_i
   end
 
-  def score()
+  def total_score()
     sql = "SELECT * FROM pubs WHERE vote1_id = #{@id}"
     pub_data1 = SqlRunner.run(sql)
     score1 = pub_data1.map { |pub_data| Pub.new(pub_data) }
@@ -30,6 +31,9 @@ class Pub
     pub_data3 = SqlRunner.run(sql)
     score3 = pub_data3.map { |pub_data| Pub.new(pub_data) }
     total_score = score1.length + score2.length + score3.length
+  end
+
+  def save_score()
     
   end
 

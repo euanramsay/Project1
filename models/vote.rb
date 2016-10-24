@@ -1,6 +1,7 @@
 require( 'pg' )
 require( 'pry-byebug' )
 require_relative('../db/sql_runner')
+require_relative( '../models/pub' )
 
 class Vote
 
@@ -13,9 +14,11 @@ class Vote
     @vote3_id = options['vote3_id'].to_i
   end
 
+
   def save()
-    sql = "UPDATE pubs SET vote1_id = #{@vote1_id}, vote2_id =  #{@vote2_id}, vote3_id = #{vote3_id} WHERE id = #{pub_id}"
-    pub_data = SqlRunner.run(sql)
+    sql = "INSERT INTO votes (pub_id, vote1_id, vote2_id, vote3_id) VALUES (#{@pub_id}, #{@vote1_id}, #{@vote2_id}, #{@vote3_id}) RETURNING *"
+    vote_data = SqlRunner.run(sql).first
+    @id = vote_data['id'].to_i
   end
 
 
