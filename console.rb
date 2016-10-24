@@ -29,6 +29,13 @@ vote5.save()
 vote6 = Vote.new( 'pub_id' => 6, 'vote1_id' => 2, 'vote2_id' => 5, 'vote3_id' => 1 )
 vote6.save()
 
+vote1.update_score()
+vote2.update_score()
+vote3.update_score()
+vote4.update_score()
+vote5.update_score()
+vote6.update_score()
+
 
 
 binding.pry

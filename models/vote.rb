@@ -5,13 +5,15 @@ require_relative( '../models/pub' )
 
 class Vote
 
-  attr_reader( :pub_id, :vote1_id, :vote2_id, :vote3_id )
+  attr_reader( :id, :pub_id, :vote1_id, :vote2_id, :vote3_id, :score)
 
   def initialize( options )
+    @id = options['id'].to_i
     @pub_id = options['pub_id']
     @vote1_id = options['vote1_id'].to_i
     @vote2_id = options['vote2_id'].to_i
     @vote3_id = options['vote3_id'].to_i
+    @score = options['score'].to_i
   end
 
 
@@ -21,19 +23,22 @@ class Vote
     @id = vote_data['id'].to_i
   end
 
-  def total_score()
+  def update_score()
     sql = "SELECT * FROM votes WHERE vote1_id = #{@pub_id}"
-    score1 = Pub.map_items(sql)
+    score1 = Vote.map_items(sql)
     sql = "SELECT * FROM votes WHERE vote2_id = #{@pub_id}"
-    score2 = Pub.map_items(sql)
+    score2 = Vote.map_items(sql)
     sql = "SELECT * FROM votes WHERE vote3_id = #{@pub_id}"
-    score3 = Pub.map_items(sql)
+    score3 = Vote.map_items(sql)
     total_score = score1.length + score2.length + score3.length
+    sql = "UPDATE votes SET score = #{total_score} WHERE pub_id = #{@pub_id}"
+    SqlRunner.run(sql)
   end
 
   def self.all()
     sql = "SELECT * FROM votes"
     return Vote.map_items(sql)
+ 
   end
 
   def self.find(id)
