@@ -29,5 +29,7 @@ vote5.save()
 vote6 = Vote.new( 'pub_id' => 6, 'vote1_id' => 2, 'vote2_id' => 5, 'vote3_id' => 1 )
 vote6.save()
 
+
+
 binding.pry
 nil
