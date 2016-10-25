@@ -5,29 +5,29 @@
   <label for="pub_id">Voting Pub Id:</label>
 
   <select id='pub_id' name='pub_id'>
-    <% @pubs.each do |pub| %>
-        <option value="<%= pub.id %>"> <%= pub.name %> </option>
-    <% end %>
+        <% @pubs.each do |pub| %>
+            <option value="<%= pub.id %>"> <%= pub.name %> </option>
+        <% end %>
   </select>
 
-  <label for="vote1">First Vote:</label>
-  <select id='vote1' name='vote1' type='text'>
+  <label for="vote1_id">First Vote:</label>
+  <select id='vote1_id' name='vote1_id'>
     <% @pubs.each do |pub| %>
-      <option value="<%= pub.name()%>"> <%= pub.name() %> </option>
+      <option value="<%= pub.id()%>"> <%= pub.name() %> </option>
     <% end %>
   </select>
   
-  <label for="vote2">Second Vote:</label>
-  <select id='vote2' name='vote2' type='text'>
+  <label for="vote2_id">Second Vote:</label>
+  <select id='vote2_id' name='vote2_id'>
     <% @pubs.each do |pub| %>
-      <option value="<%= pub.name()%>"> <%= pub.name() %> </option>
+      <option value="<%= pub.id()%>"> <%= pub.name() %> </option>
     <% end %>
   </select>
   
-  <label for="vote3">Thirds Vote:</label>
-  <select id='vote3' name='vote3' type='text'>
+  <label for="vote3_id">Thirds Vote:</label>
+  <select id='vote3_id' name='vote3_id'>
     <% @pubs.each do |pub| %>
-      <option value="<%= pub.name()%>"> <%= pub.name() %> </option>
+      <option value="<%= pub.id()%>"> <%= pub.name() %> </option>
     <% end %>
   </select>
 

@@ -1,7 +1,7 @@
 <div>
 
-<% @votes.each do |vote| %>
-<p>Pub with ID: <%= vote.pub_id %></a> has <%= vote.score %> votes! <br>
+<% @pubs.each do |pub| %>
+<p><%= pub.name %></a> has <% pub.update_score %><%= pub.score %> votes! <br>
 <hr>
 <% end %>
 

@@ -19,8 +19,20 @@ end
 #create
 post '/votes' do
   @vote = Vote.new(params)
-  @vote.save
-  redirect to( "/votes" )
+  @votes = Vote.all
+  @voted = false
+  pub_id_number = params["pub_id"].to_i
+    @votes.each do |vote|
+      if vote.pub_id == pub_id_number
+        @voted = true
+      end
+    end
+  if @voted == true
+    redirect to("/")
+  else
+    @vote.save
+    redirect to( "/votes" )
+  end
 end
 
 #show
@@ -31,6 +43,9 @@ end
 
 #edit
 get '/votes/:id/edit' do
+  @vote = Vote.find(params['id'])
+  @pub = Pub.find(params['id'])
+  erb(:'votes/edit')
 end
 
 #update

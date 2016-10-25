@@ -1,0 +1,17 @@
+<div class="content">
+
+  <h2>Edit Pub</h2>
+
+  <form action="/pubs/<%= @pub.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= @pub.name %>"><br>
+    <label for="postcode">Postcode:</label>
+    <input type="text" name="postcode" value="<%= @pub.postcode %>"><br>
+    </select>
+
+    <input type='submit' value="Update Pub">
+  </form>
+
+</div>
+

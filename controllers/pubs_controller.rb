@@ -27,6 +27,9 @@ end
 
 #edit
 get '/pubs/:id/edit' do
+  @pub = Pub.find(params['id'])
+  erb(:'pubs/edit')
+  # @pub.save
 end
 
 #update

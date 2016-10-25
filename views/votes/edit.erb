@@ -1,0 +1,19 @@
+<div class="content">
+
+  <h2>Edit Vote</h2>
+
+  <form action="/votes/<%= @vote.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="name">Voting Pub Name:</label>
+    <input type="text" name="name" value="<%= @pub.name %>"><br>
+    <label for="vote1">Vote 1:</label>
+    <input type="text" name="vote1_id" value="<%= @pub.name %>"><br>
+    <label for="vote1">Vote 2:</label>
+    <input type="text" name="vote1_2" value="<%= @pub.name %>"><br>
+    <label for="vote1">Vote 3:</label>
+    <input type="text" name="vote_3" value="<%= @pub.name %>"><br>
+    </select>
+    <input type='submit' value="Update Pub">
+  </form>
+
+</div>
