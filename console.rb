@@ -16,25 +16,18 @@ pub5.save()
 pub6 = Pub.new( { 'name' => 'Worlds End', 'postcode' => 'EH1 1TB' } );
 pub6.save()
 
-vote1 = Vote.new( 'pub_id' => 1, 'vote1_id' => 2, 'vote2_id' => 3, 'vote3_id' => 4 )
+vote1 = Vote.new( 'pub_id' => 1, 'vote1' => 'The Bow Bar', 'vote2' => 'The Three Sisters', 'vote3' => 'Cloisters Bar' )
 vote1.save()
-vote2 = Vote.new( 'pub_id' => 2, 'vote1_id' => 3, 'vote2_id' => 4, 'vote3_id' => 1 )
+vote2 = Vote.new( 'pub_id' => 2, 'vote1' => 'Deacon Brodies Tavern', 'vote2' => 'Worlds End', 'vote3' => 'Cloisters Bar' )
 vote2.save()
-vote3 = Vote.new( 'pub_id' => 3, 'vote1_id' => 1, 'vote2_id' => 6, 'vote3_id' => 4 )
+vote3 = Vote.new( 'pub_id' => 3, 'vote1' => 'The Last Drop', 'vote2' => 'Worlds End', 'vote3' => 'Cloisters Bar')
 vote3.save()
-vote4 = Vote.new( 'pub_id' => 4, 'vote1_id' => 3, 'vote2_id' => 6, 'vote3_id' => 2 )
+vote4 = Vote.new( 'pub_id' => 4, 'vote1' => 'The Three Sisters', 'vote2' => 'Worlds End', 'vote3' => 'The Bow Bar' )
 vote4.save()
-vote5 = Vote.new( 'pub_id' => 5, 'vote1_id' => 1, 'vote2_id' => 3, 'vote3_id' => 4 )
+vote5 = Vote.new( 'pub_id' => 5, 'vote1' => 'The Last Drop', 'vote2' => 'The Bow Bar', 'vote3' => 'Cloisters Bar' )
 vote5.save()
-vote6 = Vote.new( 'pub_id' => 6, 'vote1_id' => 2, 'vote2_id' => 5, 'vote3_id' => 1 )
+vote6 = Vote.new( 'pub_id' => 6, 'vote1' => 'The Bow Bar', 'vote2' => 'Deacon Brodies Tavern', 'vote3' => 'The Last Drop' )
 vote6.save()
-
-vote1.update_score()
-vote2.update_score()
-vote3.update_score()
-vote4.update_score()
-vote5.update_score()
-vote6.update_score()
 
 
 
