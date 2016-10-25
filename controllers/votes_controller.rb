@@ -5,6 +5,7 @@ require_relative('../models/pub')
 #index
 get '/votes' do
   @votes = Vote.all
+  @pubs = Pub.all
   erb(:'votes/index')
 end
 
@@ -19,7 +20,7 @@ end
 post '/votes' do
   @vote = Vote.new(params)
   @vote.save
-  redirect to( "votes" )
+  redirect to( "/votes" )
 end
 
 #show

@@ -9,7 +9,7 @@ class Vote
 
   def initialize( options )
     @id = options['id'].to_i
-    @pub_id = options['pub_id']
+    @pub_id = options['pub_id'].to_i
     @vote1 = options['vote1']
     @vote2 = options['vote2']
     @vote3 = options['vote3']
@@ -21,6 +21,13 @@ class Vote
     sql = "INSERT INTO votes (pub_id, vote1, vote2, vote3) VALUES (#{@pub_id}, '#{@vote1}', '#{@vote2}', '#{@vote3}') RETURNING *"
     vote_data = SqlRunner.run(sql).first
     @id = vote_data['id'].to_i
+  end
+
+  def voting_pub()
+    sql = "SELECT * FROM pubs WHERE pubs.id = #{@pub_id}"
+    pubs = SqlRunner.run(sql)
+    result = pubs.map { |pub| Pub.new( pub ) }
+    return result
   end
 
   # def update_score()

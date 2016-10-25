@@ -16,7 +16,7 @@ class Pub
   def save()
     sql = "INSERT INTO pubs (name, postcode) VALUES ('#{@name}', '#{@postcode}') RETURNING *"
     pub_data = SqlRunner.run(sql).first
-    @id = pub_data['id'].to_i
+    @id = pub_data['id'].to_i 
   end
 
   # def total_score()

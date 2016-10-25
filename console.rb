@@ -26,7 +26,7 @@ vote4 = Vote.new( 'pub_id' => 4, 'vote1' => 'The Three Sisters', 'vote2' => 'Wor
 vote4.save()
 vote5 = Vote.new( 'pub_id' => 5, 'vote1' => 'The Last Drop', 'vote2' => 'The Bow Bar', 'vote3' => 'Cloisters Bar' )
 vote5.save()
-vote6 = Vote.new( 'pub_id' => 6, 'vote1' => 'The Bow Bar', 'vote2' => 'Deacon Brodies Tavern', 'vote3' => 'The Last Drop' )
+vote6 = Vote.new( 'pub_id' => 6, 'vote1' => '', 'vote2' => '', 'vote3' => '' )
 vote6.save()
 
 
