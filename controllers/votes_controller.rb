@@ -5,8 +5,8 @@ enable :sessions
 
 #index
 get '/votes' do
-  @votes = Vote.all
-  @pubs = Pub.all_sorted
+  Pub.update_all_scores()
+  @pubs = Pub.all_sorted()
   # binding.pry
   erb(:'votes/index')
 end
@@ -16,7 +16,7 @@ get '/votes/new' do
   @votes = Vote.all
   @pubs = Pub.all
   if params['invalid_vote'] == 'true'
-    @message = "Invalid vote"
+    @message = "INVALID VOTE! A pub can only submit votes once and can not vote for itself. Votes must be unique."
   end
   erb(:'votes/new')
 end
@@ -35,7 +35,7 @@ post '/votes' do
   if invalid_vote #== true
     redirect to('/votes/new?invalid_vote=true')
 
-    
+
     # @votes = Vote.all
     # @pubs = Pub.all
     # @message = "Invalid vote"

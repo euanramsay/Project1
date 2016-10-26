@@ -26,7 +26,7 @@
     <% end %>
   </select>
   
-  <label for="vote3_id">Thirds Vote:</label>
+  <label for="vote3_id">Third Vote:</label>
   <select id='vote3_id' name='vote3_id'>
     <% @pubs.each do |pub| %>
       <option value="<%= pub.id()%>"> <%= pub.name() %> </option>

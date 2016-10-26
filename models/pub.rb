@@ -30,12 +30,16 @@ class Pub
    total_score = score1.length + score2.length + score3.length
    sql = "UPDATE pubs SET score = #{total_score} WHERE id = #{@id}"
    SqlRunner.run(sql)
-   @score = total_score
  end
 
   def sort_by_score
     sql = "SELECT * FROM votes WHERE vote1_id = #{@id}"
     sorted_score = Vote.map_items(sql)
+  end
+
+  def self.update_all_scores()
+    pubs = Pub.all
+    pubs.each { |pub| pub.update_score }
   end
 
   def self.all()

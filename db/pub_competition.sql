@@ -5,7 +5,7 @@ CREATE TABLE pubs (
   id serial4 PRIMARY KEY,
   name VARCHAR(255),
   postcode VARCHAR(255),
-  score INT4
+  score INT4 DEFAULT 0
 );
 
 CREATE TABLE votes (
