@@ -63,10 +63,15 @@ class Pub
   end
 
   def self.update( options )
-      sql = "UPDATE pubs SET name='#{options['name']}', 
-        postcode = '#{options['postcode']}'' 
-        WHERE id=#{options['id']}"
-      SqlRunner.run(sql)
+    sql = "UPDATE pubs SET name='#{options['name']}', 
+      postcode = '#{options['postcode']}'' 
+      WHERE id=#{options['id']}"
+    SqlRunner.run(sql)
+  end
+
+  def self.destroy( id )
+    sql = "DELETE FROM pubs WHERE id=#{id}"
+    SqlRunner.run(sql)
   end
 
   def self.map_items(sql)

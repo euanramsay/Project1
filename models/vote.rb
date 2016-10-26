@@ -87,6 +87,11 @@ end
       SqlRunner.run(sql)
   end
 
+  def self.destroy( id )
+    sql = "DELETE FROM votes WHERE id=#{id}"
+    SqlRunner.run(sql)
+  end
+
   def self.map_items(sql)
     votes = SqlRunner.run(sql)
     result = votes.map { |vote| Vote.new( vote ) }

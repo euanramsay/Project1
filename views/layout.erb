@@ -5,18 +5,16 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-  <nav>
-    <div class="go_left">
-      <div class="logo">Pub Competition</div>
-    </div>
-    <div class="go_right">
-      <ul>
-        <li><a href="/pubs">Pubs</a></li>
-        <li><a href="/votes">Votes</a></li>
-        <li><a href="/votes/new">Add Vote</a></li>
+<div id="div_top">
+  <nav class="navigation-bar">
+    <h1>Pub Competition</h1>
+      <ul id="ul_top">
+        <li><a href="/pubs" class="a_top">Pubs</a></li>
+        <li><a href="/votes" class="a_top">Votes</a></li>
+        <li><a href="/votes/new" class="a_top">Add Vote</a></li>
       </ul>
-    </div>
   </nav>
+  </div>
   <main>
     <%= yield %>
   </main>

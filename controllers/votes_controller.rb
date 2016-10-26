@@ -27,32 +27,15 @@ post '/votes' do
   invalid_vote = false
   invalid_vote = Vote.valid_vote?(params)
 
-  # if Vote.valid_vote?(@vote)
-  #   @message = "Invalid vote"
-  #   redirect to( "/votes/new" )
-# binding.pry
-
   if invalid_vote #== true
     redirect to('/votes/new?invalid_vote=true')
 
-
-    # @votes = Vote.all
-    # @pubs = Pub.all
-    # @message = "Invalid vote"
-    # erb(:'votes/new')
   else
     @vote.save
     redirect to( "/votes" )
     binding.pry
   end
 end
-
-# binding.pry
-
-    # redirect to('/votes/new?invalid_vote=true')
-
-    #append a query paramater to the /votes/new
-    #on the /votes/new erb, display the message if it exists in the params hash
 
 #show
 get '/votes/:id' do
@@ -64,6 +47,7 @@ end
 get '/votes/:id/edit' do
   @vote = Vote.find(params['id'])
   @pub = Pub.find(params['id'])
+  @pubs = Pub.all()
   erb(:'votes/edit')
 end
 

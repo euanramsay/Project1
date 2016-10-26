@@ -1,4 +1,9 @@
 <div>
   <h1><%= @pub.name %></h1>
   <h2><%= @pub.postcode %></h2>
+
+  <a href="/pubs">Back to List of Pubs</a>
+  <p>
+  <br>
+  <a href="/pubs/<%= @pub.id %>/edit">Edit pub</a>
 </div>

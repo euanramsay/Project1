@@ -39,7 +39,7 @@ post '/pubs/:id' do
 end
 
 #delete
-delete '/pubs' do
+delete '/pubs/:id' do
   Pub.destroy( params[:id] )
   redirect to('/pubs')
 end

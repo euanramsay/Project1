@@ -11,7 +11,14 @@
     </select>
 
     <input type='submit' value="Update Pub">
+    <input type="hidden" name="_method" value="update">
   </form>
 
 </div>
-
+<br>
+<p>
+<p>
+<form action="/pubs/<%= @pub.id %>" method="post">
+  <input type="submit" value="Delete Pub">
+  <input type="hidden" name="_method" value="delete">
+</form>
