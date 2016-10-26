@@ -29,10 +29,42 @@ class Vote
     return result
   end
 
+  def self.valid_vote?(params)
+
+  @votes = Vote.all
+  invalid_vote = false
+  first_vote = params["vote1_id"].to_i
+  second_vote = params["vote2_id"].to_i
+  third_vote = params["vote3_id"].to_i
+  pub_id_number = params["pub_id"].to_i
+    
+  # decide if a pub has already voted
+
+  @votes.each do |vote|
+    if vote.pub_id == pub_id_number
+      invalid_vote = true
+    end
+  end
+
+  # decide if a pub has voted for the same pub more than once
+
+  if first_vote == second_vote || first_vote == third_vote
+    invalid_vote = true
+  elsif second_vote == third_vote
+    invalid_vote = true
+  end
+
+  # decide if a pub has voted for itself
+
+  if first_vote == pub_id_number || second_vote == pub_id_number
+    invalid_vote = true
+  elsif third_vote == pub_id_number
+    invalid_vote = true
+  end
+
   def self.all()
     sql = "SELECT * FROM votes"
     return Vote.map_items(sql)
- 
   end
 
   def self.find(id)

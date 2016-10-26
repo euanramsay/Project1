@@ -33,8 +33,18 @@ class Pub
    @score = total_score
  end
 
+  def sort_by_score
+    sql = "SELECT * FROM votes WHERE vote1_id = #{@id}"
+    sorted_score = Vote.map_items(sql)
+  end
+
   def self.all()
     sql = "SELECT * FROM pubs"
+    return Pub.map_items(sql)
+  end
+
+  def self.all_sorted()
+    sql = "SELECT * FROM pubs ORDER BY score DESC"
     return Pub.map_items(sql)
   end
 
