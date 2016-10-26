@@ -2,12 +2,6 @@ body {
   font-family: sans-serif;
 }
 
-footer {
-  background-color: beige;
-  padding: 10px;
-  text-align: center;
-}
-
 .logo {
   color: blue;
   line-height: 65px;

@@ -63,7 +63,7 @@ class Vote
   end
 
   return @invalid_vote
-  
+
 end
 
   def self.all()
@@ -79,6 +79,12 @@ end
   def self.delete_all()
     sql = "DELETE FROM votes"
     SqlRunner.run(sql)
+  end
+
+  def self.update( options )
+      sql = "UPDATE pubs SET pub_id=#{options['pub_id']}, 
+        vote1_id = #{options['vote1_id']}, vote2_id = #{options['vote2_id']}, vote3_id = #{options['vote3_id']} WHERE id=#{options['id']}"
+      SqlRunner.run(sql)
   end
 
   def self.map_items(sql)

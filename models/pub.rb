@@ -58,6 +58,12 @@ class Pub
     SqlRunner.run(sql)
   end
 
+  def self.update( options )
+      sql = "UPDATE pubs SET name='#{options['name']}', 
+        postcode = '#{options['postcode']}'' 
+        WHERE id=#{options['id']}"
+      SqlRunner.run(sql)
+  end
 
   def self.map_items(sql)
     pubs = SqlRunner.run(sql)
