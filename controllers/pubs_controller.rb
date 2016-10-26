@@ -34,8 +34,12 @@ end
 
 #update
 post '/pubs/:id' do
+  @pub = Pub.update( params )
+  redirect to( "/pubs/#{params[:id]}" )
 end
 
 #delete
 delete '/pubs' do
+  Pub.destroy( params[:id] )
+  redirect to('/pubs')
 end

@@ -1,10 +1,10 @@
-
+<h1><%= @message %></h1>
 
 <h2>Add Voting Entry</h2>
 
 <form action="/votes" method="post">
 
-  <label for="pub_id">Voting Pub Id:</label>
+  <label for="pub_id">Voting Pub Name:</label>
 
   <select id='pub_id' name='pub_id'>
         <% @pubs.each do |pub| %>

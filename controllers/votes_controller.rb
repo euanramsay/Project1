@@ -1,6 +1,7 @@
 require 'pry-byebug'
 require_relative('../models/vote')
 require_relative('../models/pub')
+enable :sessions
 
 #index
 get '/votes' do
@@ -21,21 +22,30 @@ end
 post '/votes' do
   @vote = Vote.new(params)
   @votes = Vote.all
-  invalid_vote = false
-  invalid_vote = Vote.valid_vote?(params)
+  @invalid_vote = false
+  @invalid_vote = Vote.valid_vote?(params)
 
-  if invalid_vote == true
-    message = "Invalid vote"
+  # if Vote.valid_vote?(@vote)
+  #   @message = "Invalid vote"
+  #   redirect to( "/votes/new" )
+# binding.pry
+
+  if @invalid_vote == true
+    @message = "Invalid vote"
     redirect to( "/votes/new" )
+  else
+    @vote.save
+    redirect to( "/votes" )
+    binding.pry
+  end
+end
+
+# binding.pry
+
+    # redirect to('/votes?invalid_vote=true')
 
     #append a query paramater to the /votes/new
     #on the /votes/new erb, display the message if it exists in the params hash
-  else
-   @vote.save
-   redirect to( "/votes" )
-  end
-
-end
 
 #show
 get '/votes/:id' do
@@ -52,9 +62,13 @@ end
 
 #update
 post '/votes/:id' do
+  @vote = Vote.update( params )
+  redirect to( "/votes/#{params[:id]}" )
 end
 
 #delete
 delete '/votes' do
+  Vote.destroy( params[:id] )
+  redirect to('/votes')
 end
 
